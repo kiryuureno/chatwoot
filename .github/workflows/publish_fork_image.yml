@@ -3,8 +3,7 @@ name: Build and Push Custom Docker Image (GHCR)
 on:
   push:
     branches:
-      - main
-      
+      - develop
   workflow_dispatch:
 
 jobs:
