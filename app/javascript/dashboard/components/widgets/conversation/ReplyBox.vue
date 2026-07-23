@@ -378,13 +378,14 @@ export default {
       return `draft-${this.conversationIdByRoute}-${this.replyType}`;
     },
     audioRecordFormat() {
-      if (this.isAWhatsAppCloudChannel) {
+      if (
+        this.isAWhatsAppCloudChannel ||
+        this.isAWhatsAppChannel ||
+        this.isAPIInbox
+      ) {
         return AUDIO_FORMATS.OGG;
       }
-      if (this.isAWhatsAppChannel || this.isATelegramChannel) {
-        return AUDIO_FORMATS.MP3;
-      }
-      if (this.isAPIInbox) {
+      if (this.isATelegramChannel) {
         return AUDIO_FORMATS.MP3;
       }
       return AUDIO_FORMATS.WAV;
